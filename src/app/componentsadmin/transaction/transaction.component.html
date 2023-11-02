@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <div *ngIf="transactions">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>transaction Id</th>
+            <th>Account No</th>
+            <th>Receiver Account No</th>
+            <th>Transaction Type</th>
+            <th>Transaction Date</th>
+            <th>Transaction Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction.transactionid }}</td>
+            <td>{{ transaction.accountno }}</td>
+            <td>{{ transaction.receiveraccountno }}</td>
+            <td>{{ transaction.transactiontype }}</td>
+            <td>{{ transaction.transactiondate }}</td>
+            <td>{{ transaction.transactionamount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

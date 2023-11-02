@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <div *ngIf="transactions">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>User ID</th>
+            <th>User FirstName</th>
+            <th>User LastName</th>
+            <th>Username</th>
+            <th>User Password</th>
+            <th>User RoleId</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction.userid }}</td>
+            <td>{{ transaction.firstname }}</td>
+            <td>{{ transaction.lastname }}</td>
+            <td>{{ transaction.username }}</td>
+            <td>{{ transaction.password }}</td>
+            <td>{{ transaction.roleid }}</td>
+  
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

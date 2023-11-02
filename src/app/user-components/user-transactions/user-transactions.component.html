@@ -1,0 +1,15 @@
+<div *ngIf="transactions">
+    <ul>
+      <li *ngFor="let transaction of transactions">
+        Transaction ID: {{ transaction.transactionid }}<br>
+        Account No: {{ transaction.accountno }}<br>
+        Receiver Account No: {{ transaction.receiveraccountno }}<br>
+        Transaction Type: {{ transaction.transactiontype }}<br>
+        Transaction Date: {{ transaction.transactiondate }}<br>
+        Transaction Amount: {{ transaction.transactionamount }}
+      </li>
+    </ul>
+  </div>
+
+  <h1>Hello</h1>
+  

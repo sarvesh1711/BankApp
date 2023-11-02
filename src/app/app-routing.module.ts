@@ -1,7 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminhomeComponent } from './componentsadmin/adminhome/adminhome.component';
+import { AddUserComponent } from './componentsadmin/add-user/add-user.component';
+import { AllUserComponent } from './componentsadmin/all-user/all-user.component';
+import { QueryComponent } from './componentsadmin/query/query.component';
+import { TransactionComponent } from './componentsadmin/transaction/transaction.component';
+import { UserDetailsComponent } from './adminhome/user-details/user-details.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'adminhome', component: AdminhomeComponent },
+  { path: 'add-user', component: AddUserComponent },
+  { path: 'all-user', component: AllUserComponent },
+  { path: 'query', component: QueryComponent },
+  { path: 'transaction', component: TransactionComponent },
+  { path: 'user-details', component: UserDetailsComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
