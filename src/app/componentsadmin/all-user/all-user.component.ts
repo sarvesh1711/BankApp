@@ -75,6 +75,19 @@ export class AllUserComponent implements OnInit {
 
   
 
+  onDelete(id?: any){
+    console.log("first step " +id);
+    
+    if(id){
+      this.dataService.deleteUser(id).subscribe((data)=>{
+        location.reload();
+      });
+    }
+  }
+  loadDataFromService() {
+    throw new Error('Method not implemented.');
+  }
+
   search(): void {
     if (!this.searchQuery) {
       console.log('User not found');

@@ -30,6 +30,11 @@ export class DataService {
 }
 
 
+public deleteUser(user: any): Observable<void> {
+  const url = `${this.apiUrl}/${user}`;
+  return this.http.delete<void>(url).pipe( catchError(this.handleError)
+  );
+}
   private handleError(error: HttpErrorResponse) {
     let errorMessage: string = '';
     if (error.error instanceof ErrorEvent) {

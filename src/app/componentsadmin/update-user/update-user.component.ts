@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/data.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { DataService } from 'src/app/data.service';
 export class UpdateUserComponent implements OnInit {
   user: any = {}; 
 
-  constructor(private route: ActivatedRoute, private dataService: DataService) {}
+  constructor(private route: ActivatedRoute, private dataService: DataService, private router:Router) {}
 
   ngOnInit(): void {
     const userId: number = parseInt(this.route.snapshot.paramMap.get('id') || '0');
@@ -25,6 +25,7 @@ export class UpdateUserComponent implements OnInit {
     console.log('Request Payload:', this.user);
     this.dataService.updateUser(this.user).subscribe(response => {
       console.log('User updated successfully:', response);
+      this.router.navigate(['/all-user']).then();
     });
   }
 }

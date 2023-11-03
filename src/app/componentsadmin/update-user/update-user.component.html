@@ -1,12 +1,19 @@
-<form (ngSubmit)="updateUser()" #updateForm="ngForm">
+<form (ngSubmit)="updateUser()" #updateForm="ngForm" class="container w-50 mt-4"  >
   <div class="mb-3">
     <label for="updateFirstName" class="form-label">First Name</label>
-    <input type="text" class="form-control" [(ngModel)]="user.firstName" name="firstName" required>
+    <input type="text" class="form-control" [(ngModel)]="user.firstname" name="firstName" value="{{ user.firstname }}" required>
   </div>
   <div class="mb-3">
     <label for="updateLastName" class="form-label">Last Name</label>
-    <input type="text" class="form-control" [(ngModel)]="user.lastName" name="lastName" required>
+    <input type="text" class="form-control" [(ngModel)]="user.lastname" name="lastName" value="{{ user.lastname }}" required>
   </div>
+
+  <div class="mb-3">
+    <label for="updateFirstName" class="form-label">UserName</label>
+    <input type="text" class="form-control" [(ngModel)]="user.username" name="username" value="{{ user.username }}" required>
+  </div>
+
+
   <button type="button" class="btn btn-primary" (click)="updateUser()">Update</button>
 
 </form>

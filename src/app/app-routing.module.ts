@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'user-details/:id', component: UserDetailsComponent },
   { path: 'update-user', component: UpdateUserComponent },
   { path: 'update-user/:id', component: UpdateUserComponent },
+  { path: 'delete-user/:id', component: UpdateUserComponent },
 
 ];
 
