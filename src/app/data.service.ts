@@ -24,6 +24,12 @@ export class DataService {
     return this.http.get<any[]>(this.queryurl).pipe(catchError(this.handleError));
   }
 
+  updateUser(user: any): Observable<any> {
+  const url = `${this.apiUrl}/${user.id}`;
+  return this.http.put(url, user).pipe(catchError(this.handleError));
+}
+
+
   private handleError(error: HttpErrorResponse) {
     let errorMessage: string = '';
     if (error.error instanceof ErrorEvent) {

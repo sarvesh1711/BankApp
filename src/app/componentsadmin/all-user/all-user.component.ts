@@ -13,6 +13,7 @@ export class AllUserComponent implements OnInit {
   transactions: any[] = [];
   user: any;
   searchQuery: string = '';
+  searchCriteria: string = 'id'; 
   public filteredContacts:any[]=[]
   public contact:any[]=[]
 
@@ -55,33 +56,48 @@ export class AllUserComponent implements OnInit {
       }
     );
   }
-    searchOk(searchName:string){
-      searchName=this.searchQuery
-      console.log(searchName);
+  //   searchOk(searchName:string){
+  //     searchName=this.searchQuery
+  //     console.log(searchName);
       
-      if(!searchName)
-      {
-      console.log("User not found");
+  //     if(!searchName)
+  //     {
+  //     console.log("User not found");
       
-  }
-  const filteredUsers=this.filteredContacts.filter(
-       contact=>JSON.stringify(contact).toLowerCase().includes(searchName.toLowerCase())
-    )
-    console.log(filteredUsers);
-    this.filteredContacts = filteredUsers;
-    
-  }
-
-  // searchById(): void {
-  //   const searchId: number = parseInt(this.searchQuery, 10);
-  //   if (isNaN(searchId)) {
-  //     console.log('Invalid ID');
-  //     this.filteredContacts = []; 
-  //   } else {
-  //     const filteredUsers = this.transactions.filter(user => user.userid === searchId);
-  //     this.filteredContacts = filteredUsers;
-  //   }
   // }
+  // const filteredUsers=this.filteredContacts.filter(
+  //      contact=>JSON.stringify(contact).toLowerCase().includes(searchName.toLowerCase())
+  //   )
+  //   console.log(filteredUsers);
+  //   this.filteredContacts = filteredUsers;
+    
+  // }
+
+  
+
+  search(): void {
+    if (!this.searchQuery) {
+      console.log('User not found');
+      this.filteredContacts = [];
+      return;
+    }
+
+    const filteredUsers = this.transactions.filter(user => {
+      const searchValue = this.searchQuery.toLowerCase();
+      if (this.searchCriteria === 'id') {
+        return user.userid.toString().includes(searchValue);
+      } else if (this.searchCriteria === 'firstname') {
+        return user.firstname.toLowerCase().includes(searchValue);
+      } else if (this.searchCriteria === 'lastname') {
+        return user.lastname.toLowerCase().includes(searchValue);
+      } else if (this.searchCriteria === 'username') {
+        return user.username.toLowerCase().includes(searchValue);
+      }
+      return false;
+    });
+
+    this.filteredContacts = filteredUsers;
+  }
   }
 
   
