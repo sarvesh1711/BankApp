@@ -31,5 +31,12 @@ export class UserdataService {
   getTransactionss(): Observable<any[]> {
     return this.http.get<any[]>(this.transactionUrl).pipe(catchError(this.handleError));
   }
+
+  searchUsers(query: string): Observable<any[]> {
+    const searchUrl = `${this.apiUrl}?search=${query}`;
+    console.log('Search URL:', searchUrl);
+    return this.http.get<any[]>(searchUrl).pipe(catchError(this.handleError));
+  }
+
   
 }
