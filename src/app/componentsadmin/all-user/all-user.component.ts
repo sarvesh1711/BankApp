@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 import { UserdataService } from 'src/app/userdata.service';
 
 @Component({
@@ -9,8 +10,9 @@ import { UserdataService } from 'src/app/userdata.service';
 export class AllUserComponent implements OnInit {
 
   transactions: any[] = [];
+  user: any;
 
-  constructor(private userDataService: UserdataService) {}
+  constructor(private userDataService: UserdataService, private dataService: DataService) {}
 
   ngOnInit(): void {
     console.log("Hello");
@@ -23,5 +25,21 @@ export class AllUserComponent implements OnInit {
         console.error('Error fetching transactions', error);
       }
     );
+
+    
+    const userId = 1;
+    this.dataService.getUserById(userId).subscribe(
+      (data) => {
+        this.user = data;
+        console.log('User details:', this.user);
+      },
+      (error) => {
+        console.error('Error fetching user by ID', error);
+      }
+    );
   }
-}
+  }
+  
+
+
+

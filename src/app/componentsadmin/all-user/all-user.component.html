@@ -8,6 +8,7 @@
           <th>User LastName</th>
           <th>Username</th>
           <th>User Password</th>
+          <th>User Gender</th>
           <th>User RoleId</th>
           <th>View Details</th>
           <th>Update</th>
@@ -21,8 +22,11 @@
           <td>{{ transaction.lastname }}</td>
           <td>{{ transaction.username }}</td>
           <td>{{ transaction.password }}</td>
+          <td>{{ transaction.gender }}</td>
           <td>{{ transaction.roleid }}</td>
-          <td><a routerLink="/user-details"><button type="button" class="btn btn-primary">View Details</button></a></td>
+
+          <!-- <td><a routerLink="/user-details/1"><button type="button" class="btn btn-primary">View Details</button></a></td> -->
+          <td><a routerLink="/user-details/ {{transaction.userid}}"><button type="button" class="btn btn-primary">View Details</button></a></td>
           <td><a href=""><button type="button" class="btn btn-warning">Update</button></a></td>
           <td><a href=""><button type="button" class="btn btn-danger">Delete</button></a></td>
 

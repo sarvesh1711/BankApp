@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-details',
@@ -7,21 +8,31 @@ import { DataService } from 'src/app/data.service';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
+  user: any;
 
-  transactions: any[] = [];
-
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    console.log("Hello");
-    this.dataService.getTransactions().subscribe(
-      (data) => {
-        this.transactions = data;
-        console.log(this.transactions);
-      },
-      (error) => {
-        console.error('Error fetching transactions', error);
-      }
-    );
+    this.route.params.subscribe(params => {
+      const userId = +params['id']; 
+      this.dataService.getUserById(userId).subscribe(
+        (data) => {
+          this.user = [data];
+          console.log(this.user);
+        },
+        (error) => {
+          console.error('Error fetching user', error);
+        }
+      );
+    });
   }
+
+  getTotalBalance(accounts: any[]): number {
+    let totalBalance = 0;
+    for (const account of accounts) {
+      totalBalance += account.balance;
+    }
+    return totalBalance;
+  }
+  
 }

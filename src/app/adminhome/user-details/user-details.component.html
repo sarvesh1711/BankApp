@@ -1,29 +1,49 @@
 <div class="container mt-4">
-    <div *ngIf="transactions">
-      <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th>User ID</th>
-            <th>User FirstName</th>
-            <th>User LastName</th>
-            <th>Username</th>
-            <th>User Password</th>
-            <th>User RoleId</th>
+  <div *ngIf="user">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>User ID</th>
+          <th>User FirstName</th>
+          <th>User LastName</th>
+          <th>Username</th>
+          <th>User Password</th>
+          <th>User RoleId</th>
+          <th>User Email</th>
+          <th>User Gender</th>
+          <th>Account Numbers</th>
+          <th>Account Balance</th>
+          <th>Total Balance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of user">
+          <td>{{ user.userid }}</td>
+          <td>{{ user.firstname }}</td>
+          <td>{{ user.lastname }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.password }}</td>
+          <td>{{ user.roleid }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.gender }}</td>
+          <td>
+            <span *ngFor="let account of user.accounts; let last = last">
+              {{ account.accountno }}{{ !last ? ', ' : '' }}
+            </span>
+          </td>
 
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let transaction of transactions">
-            <td>{{ transaction.userid }}</td>
-            <td>{{ transaction.firstname }}</td>
-            <td>{{ transaction.lastname }}</td>
-            <td>{{ transaction.username }}</td>
-            <td>{{ transaction.password }}</td>
-            <td>{{ transaction.roleid }}</td>
-  
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <td>
+            <span *ngFor="let account of user.accounts; let last = last">
+              {{ account.balance }}{{ !last ? ', ' : '' }}  
+              <!-- {{ getTotalBalance(user.accounts) }} -->
+            </span>
+          </td>
+
+          <td>
+            {{ getTotalBalance(user.accounts) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  
+</div>

@@ -13,7 +13,9 @@ const routes: Routes = [
   { path: 'all-user', component: AllUserComponent },
   { path: 'query', component: QueryComponent },
   { path: 'transaction', component: TransactionComponent },
-  { path: 'user-details', component: UserDetailsComponent }
+  { path: 'user-details', component: UserDetailsComponent },
+  { path: 'user-details/:id', component: UserDetailsComponent },
+
 ];
 
 @NgModule({
