@@ -8,6 +8,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 export class DataService {
   private apiUrl = 'http://localhost:8081/user';
   private queryurl = 'http://localhost:8081/query';
+   private accountrequesturl = 'http://localhost:8081/files';
 
   constructor(private http: HttpClient) {}
 
@@ -23,6 +24,11 @@ export class DataService {
   getQuery(): Observable<any[]> {
     return this.http.get<any[]>(this.queryurl).pipe(catchError(this.handleError));
   }
+
+  getAccountRequest(): Observable<any[]> {
+    return this.http.get<any[]>(this.accountrequesturl).pipe(catchError(this.handleError));
+  }
+
 
   updateUser(user: any): Observable<any> {
   const url = `${this.apiUrl}/${user.id}`;

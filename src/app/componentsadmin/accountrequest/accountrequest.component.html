@@ -1,0 +1,11 @@
+<p>accountrequest works!</p>
+
+<button>Accept</button>
+<div *ngFor="let item of accountrequest">
+    <!-- <input class="form-control" value="{{item.fileName}}"> -->
+    <p><a [href]="getSafeUrl(item.fileName)" download>File Name: {{ item.fileName }}</a></p>
+    <p><a [href]="getSafeUrl(item.filepancard)" download>File Pan Card: {{ item.filepancard }}</a></p>
+    <p><a [href]="getSafeUrl(item.fileadharcard)" download>File Aadhar Card: {{ item.fileadharcard }}</a></p>
+    <hr>
+  </div>
+  

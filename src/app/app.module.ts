@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserTransactionsComponent } from './user-components/user-transactions/user-transactions.component';
 import { UserDetailsComponent } from './adminhome/user-details/user-details.component';
 import { FormsModule } from '@angular/forms';
+import { AccountrequestComponent } from './componentsadmin/accountrequest/accountrequest.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { FormsModule } from '@angular/forms';
     UserHomeComponent,
     RegisterComponent,
     UserDetailsComponent,
+    AccountrequestComponent,
   ],
   imports: [
     BrowserModule,

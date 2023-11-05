@@ -13,6 +13,11 @@
     <input type="text" class="form-control" [(ngModel)]="user.username" name="username" value="{{ user.username }}" required>
   </div>
 
+  <div class="mb-3">
+    <label for="updateFirstName" class="form-label">Email</label>
+    <input type="text" class="form-control" [(ngModel)]="user.email" name="email" value="{{ user.email }}" required>
+  </div>
+
 
   <button type="button" class="btn btn-primary" (click)="updateUser()">Update</button>
 
